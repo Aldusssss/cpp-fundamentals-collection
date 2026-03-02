@@ -1,1 +1,31 @@
+# Exercise 4: Character Statistics Calculator
 
+A simple C++ program that analyzes a text sequence and calculates statistics about lowercase letters and digits.
+
+## 📝 Description
+
+This program asks the user to enter a text sequence terminated by the '$' character. It then counts the total number of characters, the number of lowercase letters (a-z), and the number of digits (0-9). Finally, it calculates and displays the percentage of lowercase characters and digits. If no characters are entered, it displays an appropriate message.
+
+## 🧮 Algorithm
+
+The program uses a sentinel-controlled loop to process characters one by one:
+
+1. **Initialization**: 
+   - Disable whitespace skipping to read all characters including spaces
+   - Set counters for total chars, lowercase chars, and digits to 0
+   
+2. **Read first character**: Get the first input from the user
+
+3. **Loop until sentinel**: While the character is not '$' (the STOPPER):
+   - Increment total character count
+   - Check if character is a lowercase letter ('a' to 'z')
+     - If yes, increment lowercase counter
+   - Otherwise, check if character is a digit ('0' to '9')
+     - If yes, increment digit counter
+   - Read the next character
+
+4. **Calculate statistics**:
+   - If total characters > 0:
+     - Percentage of lowercase = (lowercase_count / total_chars) × 100
+     - Percentage of digits = (digits_count / total_chars) × 100
+   - Otherwise, display "No chars were entered"
