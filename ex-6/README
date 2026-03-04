@@ -1,0 +1,53 @@
+# Exercise 6: Median Calculator
+
+A C++ program that calculates the median of a set of 5 distinct numbers without using sorting.
+
+## 📝 Description
+
+This program asks the user to input 5 distinct numbers and then finds the median (the middle value when the numbers are arranged in order). What makes this program interesting is that it finds the median **without sorting** the array - it uses a counting approach instead.
+
+## 🧮 Algorithm
+
+The program uses a comparison-based approach to find the element that has exactly (n-1)/2 numbers smaller than it:
+
+1. **Input Phase**:
+   - Read 5 distinct numbers into an array
+
+2. **Median Search Phase**:
+   - For each element in the array (index i):
+     - Initialize counter to 0
+     - Compare the current element with all other elements (index j)
+     - Count how many elements are **less than** the current element
+     - If the count equals (DIM-1)/2 (which is 2 for 5 elements), we've found the median
+     - Continue until median is found or all elements are checked
+
+3. **Output Phase**:
+   - Display the median value
+
+## 📊 Example
+
+**Input:**
+```
+Enter data number 1: 10
+Enter data number 2: 5
+Enter data number 3: 7
+Enter data number 4: 3
+Enter data number 5: 9
+```
+
+**Sorted values:** 3, 5, 7, 9, 10
+**Median:** 7
+
+**How the algorithm works:**
+- For value 7: numbers less than 7 are [3,5] → count = 2 ✓ (median found)
+- For value 10: numbers less than 10 are [3,5,7,9] → count = 4 ✗
+- For value 5: numbers less than 5 are [3] → count = 1 ✗
+- etc.
+
+## 🔍 Key Insight
+
+For a set of n distinct numbers, the median is the element that has exactly (n-1)/2 numbers smaller than it. For n=5:
+- (5-1)/2 = 2
+- So we look for the element that has exactly 2 numbers smaller than itself
+
+This property allows us to find the median without sorting the entire array.
